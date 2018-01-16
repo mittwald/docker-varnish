@@ -12,7 +12,7 @@ start_varnishd () {
         ${VARNISHD} -s malloc,"${VARNISH_MEMORY}" \
             -F \
             -a :8080 \
-            -b "${VARNISH_BACKEND_ADDRESS}:${VARNISH_BACKEND_PORT}"
+            -f "${VARNISH_VCL_PATH}"
     else
 
         exit 1
