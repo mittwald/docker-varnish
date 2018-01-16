@@ -4,7 +4,7 @@ set -e
 
 start_varnishd () {
 
-    VARNISHD="$(command -v varnishd)"
+    VARNISHD="exec $(command -v varnishd)"
     FILE="${1}"
 
     if ! [ -z "${FILE}" ]; then
