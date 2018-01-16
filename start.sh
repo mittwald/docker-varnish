@@ -7,7 +7,7 @@ start_varnishd () {
     VARNISHD="$(command -v varnishd)"
     FILE="${1}"
 
-    if [ -z "${FILE}" ]; then
+    if ! [ -z "${FILE}" ]; then
 
         ${VARNISHD} -s malloc,"${VARNISH_MEMORY}" \
             -F \
