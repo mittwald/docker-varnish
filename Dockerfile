@@ -12,7 +12,6 @@ RUN apk update && \
     rm -Rf /tmp/*
 
 ADD start.sh /usr/local/bin/startvarnishd
-RUN chmod +x /usr/local/bin/startvarnishd
 
 EXPOSE 8080
 
