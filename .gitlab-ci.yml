@@ -2,5 +2,7 @@ before_script:
   - docker info
 
 build_image:
+  stage: build
+  image: docker
   script:
-    - docker build -t varnish-docker .
+    - docker build -t varnish:${CI_COMMIT_REF_NAME} .
