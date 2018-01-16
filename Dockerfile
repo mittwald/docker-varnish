@@ -8,8 +8,7 @@ ENV VARNISH_VCL_PATH YOUR-VCL-PATH
 
 RUN apk update && \
     apk upgrade && \
-    apk add varnish && \
-    update-ca-certificates
+    apk add varnish
 
 RUN rm -Rf /tmp/*
 
