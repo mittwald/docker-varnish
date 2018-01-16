@@ -2,19 +2,6 @@
 
 set -e
 
-search_and_replace () {
-
-    FILE="${1}"
-    SEARCH_PATTERN="${2}"
-    REPLACE_WITH="${3}"
-
-    SED="$(command -v sed) -i"
-    ECHO="$(command -v echo) -e"
-
-    ${SED} "s#${SEARCH_PATTERN}#${REPLACE_WITH}#g" "${FILE}"
-
-}
-
 start_varnishd () {
 
     VARNISHD="$(command -v varnishd)"
@@ -23,14 +10,12 @@ start_varnishd () {
     if [ -z "${FILE}" ]; then
 
         ${VARNISHD} -s malloc,"${VARNISH_MEMORY}" \
+            -F \
             -a :8080 \
             -b "${VARNISH_BACKEND_ADDRESS}:${VARNISH_BACKEND_PORT}"
-
     else
 
-        ${VARNISHD} -s malloc,"${VARNISH_MEMORY}" \
-            -a :8080 \
-            -f "${FILE}"
+        exit 1
 
     fi
 
@@ -53,8 +38,3 @@ if ! [ -s "${VARNISH_VCL_CUSTOM_PATH}" ]; then
 fi
 
 start_varnishd "${VARNISH_VCL_CUSTOM_PATH}"
-
-
-sleep 10
-
-varnishlog
