@@ -8,9 +8,8 @@ ENV VARNISH_VCL_PATH YOUR-VCL-PATH
 
 RUN apk update && \
     apk upgrade && \
-    apk add varnish
-
-RUN rm -Rf /tmp/*
+    apk add varnish && \
+    rm -Rf /tmp/*
 
 ADD start.sh /usr/local/bin/startvarnishd
 RUN chmod +x /usr/local/bin/startvarnishd
