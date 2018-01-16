@@ -4,7 +4,7 @@ LABEL   maintainer ="Dennis Hermsmeier <d.hermsmeier@mittwald.de> for Mittwald C
 
 ENV VARNISH_MEMORY 128M
 
-ENV VARNISH_VCL_PATH YOUR-VCL-PATH
+ENV VARNISH_VCL_PATH /etc/varnish/default.vcl
 
 RUN apk update && \
     apk upgrade && \

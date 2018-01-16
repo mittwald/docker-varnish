@@ -21,14 +21,6 @@ start_varnishd () {
 
 }
 
-if [ ${VARNISH_VCL_PATH} == "YOUR-VCL-PATH" ]; then
-
-    echo "You did not configure your vcl-path properly."
-    echo "See docs for configuration-exmaple."
-    exit 1
-
-fi
-
 if ! [ -s "${VARNISH_VCL_PATH}" ]; then
 
     echo "Provided VCL is either empty or not existent:"
