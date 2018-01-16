@@ -15,6 +15,7 @@ start_varnishd () {
             -f "${VARNISH_VCL_PATH}"
     else
 
+        echo "Missing vcl operand. State path to vcl in first argument."
         exit 1
 
     fi
