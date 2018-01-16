@@ -11,7 +11,7 @@ start_varnishd () {
 
         ${VARNISHD} -s malloc,"${VARNISH_MEMORY}" \
             -F \
-            -a :8080 \
+            -a :"${VARNISH_PORT}" \
             -f "${VARNISH_VCL_PATH}"
     else
 
