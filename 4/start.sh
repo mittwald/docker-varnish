@@ -12,7 +12,7 @@ start_varnishd () {
         ${VARNISHD} -s malloc,"${VARNISH_MEMORY}" \
             -F \
             -a :"${VARNISH_PORT}" \
-            -f "${VARNISH_VCL_PATH}" "${VARNISHD_OPTS}"
+            -f "${VARNISH_VCL_PATH}" ${VARNISHD_OPTS}
     else
 
         echo "Missing vcl operand. State path to vcl in first argument."
